@@ -41,10 +41,10 @@ def get_files_name(file_dir):
     """
     filesList = []
     for roots, dirs, files in os.walk(file_dir):
-        # # files是一个list，内容是该文件夹中所有的文件
-            if files:
-                for f in files:
-                    filesList.append(f)
+        # files是一个list，内容是该文件夹中所有的文件
+        if files:
+            for f in files:
+                filesList.append(f)
     return filesList
 
 
@@ -70,7 +70,7 @@ def set_formula(dirPath, filesList):
             if not os.path.exists(newDir):
                 os.makedirs(newDir)
             wb.save(newDir + "\\" + f)
-            print("处理成功！(๑•̀ㅂ•́)و✧")
+            print("处理成功！")
     except:
         print("\nOops!w(ﾟДﾟ)w\n程序出错啦，可以访问作者的GitHub页面上报bug哦~\n"
               + "访问链接：https://github.com/jl223vy/FJTCM-CEH")
@@ -115,7 +115,7 @@ def get_moral(dirPath, filesList):
             moralAward[f] = round(cntAward, 1)
             moralPenalty[f] = round(abs(cntPenalty), 1)
             moralTotal[f] = round(cntTotal, 1)
-        print("\n计算德育加减分成功！(๑•̀ㅂ•́)و✧")
+        print("\n计算德育加减分成功！")
         return 1, [moralAward, moralPenalty, moralTotal]
     except:
         print("\nOops!w(ﾟДﾟ)w\n程序出错啦，可以访问作者的GitHub页面上报bug哦~\n"
@@ -154,7 +154,7 @@ def get_discipline(dirPath, filesList):
             disciplineAward[f] = round(cntAward, 1)
             disciplinePenalty[f] = round(abs(cntPenalty), 1)
             disciplineTotal[f] = round(cntTotal, 1)
-        print("\n计算智育加减分成功！(๑•̀ㅂ•́)و✧")
+        print("\n计算智育加减分成功！")
         return 1, [disciplineAward, disciplinePenalty, disciplineTotal]
     except:
         print("\nOops!w(ﾟДﾟ)w\n程序出错啦，可以访问作者的GitHub页面上报bug哦~\n"
@@ -211,10 +211,11 @@ def save_discipline(discipline, filesList):
 
 
 def main():
-    print("(｡･∀･)ﾉﾞ欢迎使用福建中医药大学综测助手!\n\n【程序功能说明】：\n"
+    print("(｡･∀･)ﾉﾞ欢迎使用福建中医药大学综测助手!\n"
+          + "\n【程序功能说明】：\n"
           + "1、对所有加减分申报表批量设定公式\n"
           + "2、统计汇总德、智育加奖分、减罚分和总分至Excel表格\n"
-          + "\n【使用须知】:\n"
+          + "\n【使用须知】：\n"
           + "1、请提供完整的文件夹路径，如：C:\\Users\\Lenovo\\Desktop\\加减分申报表汇总\n"
           + "2、所有的加减分申报表都必须以[.xls]为扩展名\n"
           )
